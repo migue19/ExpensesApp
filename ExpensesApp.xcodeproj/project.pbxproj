@@ -15,6 +15,12 @@
 		490A7D38204490A500C385D2 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A7D37204490A500C385D2 /* ExpenseViewController.swift */; };
 		490A7D3A2044AEFC00C385D2 /* StringResource.strings in Resources */ = {isa = PBXBuildFile; fileRef = 490A7D392044AEFC00C385D2 /* StringResource.strings */; };
 		490A7D3C2044B08300C385D2 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A7D3B2044B08300C385D2 /* ExpenseTableViewCell.swift */; };
+		490A7D3E2044BC8200C385D2 /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A7D3D2044BC8200C385D2 /* ButtonCustom.swift */; };
+		490A7D402044BD8300C385D2 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A7D3F2044BD8300C385D2 /* Expense.swift */; };
+		490A7D462044C3D900C385D2 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A7D452044C3D900C385D2 /* Utils.swift */; };
+		490A7D482044CA1900C385D2 /* ExpensesDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A7D472044CA1900C385D2 /* ExpensesDAO.swift */; };
+		490A7D4A2044D0EC00C385D2 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A7D492044D0EC00C385D2 /* AddExpenseViewController.swift */; };
+		490A7D4D2044DD4A00C385D2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A7D4C2044DD4A00C385D2 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,12 @@
 		490A7D37204490A500C385D2 /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		490A7D392044AEFC00C385D2 /* StringResource.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = StringResource.strings; sourceTree = "<group>"; };
 		490A7D3B2044B08300C385D2 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
+		490A7D3D2044BC8200C385D2 /* ButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
+		490A7D3F2044BD8300C385D2 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		490A7D452044C3D900C385D2 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		490A7D472044CA1900C385D2 /* ExpensesDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesDAO.swift; sourceTree = "<group>"; };
+		490A7D492044D0EC00C385D2 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		490A7D4C2044DD4A00C385D2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +72,13 @@
 		490A7D212044905F00C385D2 /* ExpensesApp */ = {
 			isa = PBXGroup;
 			children = (
+				490A7D4B2044DD1B00C385D2 /* Resources */,
+				490A7D442044C38500C385D2 /* Utils */,
 				490A7D222044905F00C385D2 /* AppDelegate.swift */,
 				490A7D262044905F00C385D2 /* Main.storyboard */,
-				490A7D37204490A500C385D2 /* ExpenseViewController.swift */,
-				490A7D3B2044B08300C385D2 /* ExpenseTableViewCell.swift */,
+				490A7D422044BD9600C385D2 /* Controller */,
+				490A7D412044BD8900C385D2 /* Model */,
+				490A7D432044BDB100C385D2 /* ViewsCustom */,
 				490A7D2C2044905F00C385D2 /* Assets.xcassets */,
 				490A7D2E2044905F00C385D2 /* LaunchScreen.storyboard */,
 				490A7D392044AEFC00C385D2 /* StringResource.strings */,
@@ -71,6 +86,49 @@
 				490A7D292044905F00C385D2 /* ExpensesApp.xcdatamodeld */,
 			);
 			path = ExpensesApp;
+			sourceTree = "<group>";
+		};
+		490A7D412044BD8900C385D2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				490A7D3F2044BD8300C385D2 /* Expense.swift */,
+				490A7D472044CA1900C385D2 /* ExpensesDAO.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		490A7D422044BD9600C385D2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				490A7D37204490A500C385D2 /* ExpenseViewController.swift */,
+				490A7D492044D0EC00C385D2 /* AddExpenseViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		490A7D432044BDB100C385D2 /* ViewsCustom */ = {
+			isa = PBXGroup;
+			children = (
+				490A7D3B2044B08300C385D2 /* ExpenseTableViewCell.swift */,
+				490A7D3D2044BC8200C385D2 /* ButtonCustom.swift */,
+			);
+			path = ViewsCustom;
+			sourceTree = "<group>";
+		};
+		490A7D442044C38500C385D2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				490A7D452044C3D900C385D2 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		490A7D4B2044DD1B00C385D2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				490A7D4C2044DD4A00C385D2 /* Colors.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +204,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				490A7D402044BD8300C385D2 /* Expense.swift in Sources */,
+				490A7D4D2044DD4A00C385D2 /* Colors.swift in Sources */,
 				490A7D2B2044905F00C385D2 /* ExpensesApp.xcdatamodeld in Sources */,
 				490A7D3C2044B08300C385D2 /* ExpenseTableViewCell.swift in Sources */,
+				490A7D482044CA1900C385D2 /* ExpensesDAO.swift in Sources */,
+				490A7D4A2044D0EC00C385D2 /* AddExpenseViewController.swift in Sources */,
+				490A7D462044C3D900C385D2 /* Utils.swift in Sources */,
 				490A7D232044905F00C385D2 /* AppDelegate.swift in Sources */,
+				490A7D3E2044BC8200C385D2 /* ButtonCustom.swift in Sources */,
 				490A7D38204490A500C385D2 /* ExpenseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,11 +9,14 @@
 import UIKit
 
 class ExpenseViewController: UIViewController {
-    let expenses = ["Renta","Luz","Gas","Internet"]
+    @IBOutlet weak var tableView: UITableView!
+    var expenses: [Expenses] = []
+    let expensesDAO = ExpensesDAO()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       // expenses = expensesDAO.ObtenerObjects()
     
     }
 
@@ -22,16 +25,56 @@ class ExpenseViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        expenses = expensesDAO.getObjectsSortDate()
+        tableView.reloadData()
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let isAdd = (sender is UIBarButtonItem)
+        
+        
+        if segue.identifier == "showExpense" {
+            
+            let destination = segue.destination as! AddExpenseViewController
+            
+            
+            if !isAdd{
+                let auxactividad = sender as! Expense
+                destination.expense = auxactividad
+            }
+            else{
+                destination.expense = Expense()
+            }
+        }
+    }
 
 
 
 }
 
 
+
+
+
+
 // MARK: - TableView Delegate
 extension ExpenseViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("hola")
+
+        let acttividadAux = Expense.init(concept: self.expenses[indexPath.row].concept! , date: self.expenses[indexPath.row].date!, price: self.expenses[indexPath.row].price)
+        
+        self.performSegue(withIdentifier: "showExpense", sender: acttividadAux)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }
@@ -47,10 +90,29 @@ extension ExpenseViewController: UITableViewDataSource {
         // create a new cell if needed or reuse an old one
         let cell:ExpenseTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ExpenseTableViewCell!
         
-        cell.lblConcept.text = self.expenses[indexPath.row]
+        cell.lblConcept.text = self.expenses[indexPath.row].concept
+        cell.lblDate.text = Utils.dateFormat(date: self.expenses[indexPath.row].date!)
+        cell.lblPrice.text = Utils.numberFormatCell(price: self.expenses[indexPath.row].price)
         
         return cell
     }
+    
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        expensesDAO.deleteActividadCoreData(expense: expenses[indexPath.row])
+
+        expenses.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .left)
+        
+    }
+    
+    
+    
+    
     
   
 }

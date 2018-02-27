@@ -32,21 +32,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tFg-yA-I0x">
-                                                    <rect key="frame" x="25" y="48" width="56" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="25" y="52" width="46.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$230" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRy-8j-7yB">
-                                                    <rect key="frame" x="308" y="30" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="305.5" y="30" width="44.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="0.16619400179999999" green="0.53370164990000002" blue="0.66880155460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concepto: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ld4-ZR-mka">
-                                                    <rect key="frame" x="25" y="11" width="84" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="25" y="11" width="92" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                                    <color key="textColor" red="0.32156862749999998" green="0.52549019610000003" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -84,19 +84,22 @@
                     <navigationItem key="navigationItem" title="Gastos" id="lkq-0Y-hLZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ksx-FT-Rik">
                             <connections>
-                                <segue destination="WtR-E9-bal" kind="show" id="zW9-PZ-oXg"/>
+                                <segue destination="WtR-E9-bal" kind="show" identifier="showExpense" id="zW9-PZ-oXg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="UWG-nx-lrW" id="D0P-sQ-fIA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yp-Q0-6QC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="406" y="99"/>
+            <point key="canvasLocation" x="359" y="99"/>
         </scene>
         <!--Agregar Concepto-->
         <scene sceneID="URF-XL-xBo">
             <objects>
-                <viewController id="WtR-E9-bal" sceneMemberID="viewController">
+                <viewController id="WtR-E9-bal" customClass="AddExpenseViewController" customModule="ExpensesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="89W-8u-e01">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,26 +123,43 @@
                                         <rect key="frame" x="0.0" y="100" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9l-Cp-cDT" customClass="ButtonCustom" customModule="ExpensesApp" customModuleProvider="target">
+                                <rect key="frame" x="37" y="244" width="300" height="30"/>
+                                <color key="backgroundColor" red="0.16619400179999999" green="0.53370164990000002" blue="0.66880155460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Guardar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="SaveExpense:" destination="WtR-E9-bal" eventType="touchUpInside" id="B1D-5b-vsp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rN4-vM-A5g" firstAttribute="width" secondItem="89W-8u-e01" secondAttribute="width" multiplier="0.8" id="9X0-BG-D9O"/>
                             <constraint firstItem="rN4-vM-A5g" firstAttribute="centerX" secondItem="89W-8u-e01" secondAttribute="centerX" id="EAU-xl-osn"/>
                             <constraint firstItem="rN4-vM-A5g" firstAttribute="top" secondItem="zjG-es-OEg" secondAttribute="top" constant="20" id="Hh7-iq-tsc"/>
+                            <constraint firstItem="f9l-Cp-cDT" firstAttribute="width" secondItem="89W-8u-e01" secondAttribute="width" multiplier="0.8" id="YFH-Kd-YHs"/>
+                            <constraint firstItem="f9l-Cp-cDT" firstAttribute="centerX" secondItem="89W-8u-e01" secondAttribute="centerX" id="bLx-b3-QjQ"/>
+                            <constraint firstItem="f9l-Cp-cDT" firstAttribute="top" secondItem="rN4-vM-A5g" secondAttribute="bottom" constant="30" id="uRn-na-cSn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zjG-es-OEg"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Agregar Concepto" id="gVa-T2-N9u">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ksg-Gh-hLx"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Agregar Concepto" id="gVa-T2-N9u"/>
+                    <connections>
+                        <outlet property="btnAction" destination="f9l-Cp-cDT" id="aa5-UD-4L8"/>
+                        <outlet property="txtConcept" destination="bOS-Xv-uKQ" id="5Wm-Ut-eFE"/>
+                        <outlet property="txtDate" destination="lmg-iM-gw5" id="teN-Zj-Ykc"/>
+                        <outlet property="txtPrice" destination="lVk-wT-Bvz" id="SUI-Oz-gsp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qck-UG-gUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129" y="99"/>
+            <point key="canvasLocation" x="1068" y="99"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BJq-bq-SOF">

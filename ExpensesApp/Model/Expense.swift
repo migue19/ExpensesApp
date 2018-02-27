@@ -9,5 +9,35 @@
 import UIKit
 
 class Expense: NSObject {
+   var concept:String! = String()
+   var date: Date! = Date ()
+   var price: Double = Double()
+    
+    
+    override init(){
+        
+    }
+    
+    init(concept: String, date: Date, price: Double){
+        self.concept = concept
+        self.date = date
+        self.price = price
+    }
 
+    
+    
+//    func getConcept(concept:String) -> String {
+//        return self.concept
+//    }
+//
+//    func getDate(date: Date) -> Date {
+//        return self.date
+//    }
+//
+//    func getPrice(price: Double) -> Double{
+//        return self.price
+//    }
+    
+    
+    
 }
