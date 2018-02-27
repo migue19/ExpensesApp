@@ -120,7 +120,8 @@ extension ExpenseViewController: UITableViewDataSource {
 
         expenses.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .left)
-        
+        total = 0
+        tableView.reloadData()
     }
     
     
