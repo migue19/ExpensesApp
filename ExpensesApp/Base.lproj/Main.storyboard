@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UWG-nx-lrW">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="22" reuseIdentifier="cell" rowHeight="80" id="o8W-4X-KMZ" customClass="ExpenseTableViewCell" customModule="ExpensesApp" customModuleProvider="target">
@@ -71,13 +71,29 @@
                                     <outlet property="delegate" destination="Wjq-1O-BYz" id="n5V-k9-Zgh"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQd-j8-VTt">
+                                <rect key="frame" x="216" y="636" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.16619400179999999" green="0.53370164990000002" blue="0.66880155460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOS-9M-4uF">
+                                <rect key="frame" x="302" y="637.5" width="53" height="19.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" red="0.16619400179999999" green="0.53370164990000002" blue="0.66880155460000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nem-3X-oJq" firstAttribute="trailing" secondItem="UWG-nx-lrW" secondAttribute="trailing" id="O3Z-uR-mz8"/>
+                            <constraint firstItem="nem-3X-oJq" firstAttribute="trailing" secondItem="bOS-9M-4uF" secondAttribute="trailing" constant="20" id="QTT-PW-37t"/>
+                            <constraint firstItem="nem-3X-oJq" firstAttribute="bottom" secondItem="HQd-j8-VTt" secondAttribute="bottom" constant="10" id="VtG-Gt-CHb"/>
                             <constraint firstItem="UWG-nx-lrW" firstAttribute="top" secondItem="nem-3X-oJq" secondAttribute="top" id="axp-lD-2N8"/>
                             <constraint firstItem="UWG-nx-lrW" firstAttribute="leading" secondItem="nem-3X-oJq" secondAttribute="leading" id="sHm-IA-Q8O"/>
-                            <constraint firstItem="nem-3X-oJq" firstAttribute="bottom" secondItem="UWG-nx-lrW" secondAttribute="bottom" id="vD0-BV-umB"/>
+                            <constraint firstItem="nem-3X-oJq" firstAttribute="bottom" secondItem="UWG-nx-lrW" secondAttribute="bottom" constant="50" id="vD0-BV-umB"/>
+                            <constraint firstItem="nem-3X-oJq" firstAttribute="bottom" secondItem="bOS-9M-4uF" secondAttribute="bottom" constant="10" id="yrB-HB-odv"/>
+                            <constraint firstItem="bOS-9M-4uF" firstAttribute="leading" secondItem="HQd-j8-VTt" secondAttribute="trailing" constant="40" id="zEQ-bZ-73r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nem-3X-oJq"/>
                     </view>
@@ -89,6 +105,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="lblTotal" destination="bOS-9M-4uF" id="sEp-vn-vUp"/>
                         <outlet property="tableView" destination="UWG-nx-lrW" id="D0P-sQ-fIA"/>
                     </connections>
                 </viewController>

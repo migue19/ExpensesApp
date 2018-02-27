@@ -12,6 +12,11 @@ class ExpenseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var expenses: [Expenses] = []
     let expensesDAO = ExpensesDAO()
+    var total = 0.0
+    
+    @IBOutlet weak var lblTotal: UILabel!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +31,7 @@ class ExpenseViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        total = 0
         expenses = expensesDAO.getObjectsSortDate()
         tableView.reloadData()
     }
@@ -76,6 +82,9 @@ extension ExpenseViewController: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    
+   
 
 }
 
@@ -92,8 +101,12 @@ extension ExpenseViewController: UITableViewDataSource {
         
         cell.lblConcept.text = self.expenses[indexPath.row].concept
         cell.lblDate.text = Utils.dateFormat(date: self.expenses[indexPath.row].date!)
+        
+        total =  total + self.expenses[indexPath.row].price
+        
         cell.lblPrice.text = Utils.numberFormatCell(price: self.expenses[indexPath.row].price)
         
+        self.lblTotal.text = Utils.numberFormatCell(price: total)
         return cell
     }
     
